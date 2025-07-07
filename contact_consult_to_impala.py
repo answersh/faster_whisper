@@ -150,8 +150,8 @@ try:
     df_spark = df_spark.withColumn("hdfs_upd_dttm", current_timestamp())
     
     # Kudu 테이블에 UPSERT
-    df_spark.write.format("org.apache.kudu.spark.kudu") \
-        .option("kudu.master", '10.150.150.71:7051, 10.150.150.72:7051, 10.150.150.73:7051') \
+    df_spark.write.format("org1.apache.kudu.spark.kudu") \
+        .option("kudu.master", '11.111.111.11:1113, 11.111.111.111:1111, 11.111.111.11:1112') \
         .option("kudu.table", "impala::cti.stt_pre") \
         .option("kudu.operation", "upsert") \
         .mode("append") \
